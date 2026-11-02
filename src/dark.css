@@ -1,0 +1,66 @@
+/* Dark mode (tự sinh từ các class màu trong code). Nền Apple: #000 / #1c1c1e, chữ #f5f5f7. */
+.dark { color-scheme: dark; }
+html.dark body { background-color: #000; color: #f5f5f7; }
+.dark .glass { background: rgb(0 0 0 / 0.6); border-bottom-color: rgb(255 255 255 / 0.1); }
+.dark .glass-thick { background: rgb(28 28 30 / 0.78); border-color: rgb(255 255 255 / 0.1); box-shadow: 0 0 0 0.5px rgb(255 255 255 / 0.08), 0 40px 100px rgb(0 0 0 / 0.6); }
+.dark img { filter: brightness(0.92); }
+.dark ::selection { background: #0a84ff; }
+.theme-transition, .theme-transition * { transition: background-color .5s ease, color .5s ease, border-color .5s ease !important; }
+.dark .bg-black\/5,.dark .bg-black\/10{background-color:rgb(255 255 255 / .1)}
+.dark .hover\:bg-black\/5:hover{background-color:rgb(255 255 255 / .1)}.dark .hover\:bg-black\/10:hover{background-color:rgb(255 255 255 / .16)}
+.dark .ring-black\/\[0\.06\],.dark .border-black\/\[0\.06\]{--tw-ring-color:rgb(255 255 255 / .1);border-color:rgb(255 255 255 / .1)}
+/*GENERATED*/
+.dark .bg-\[\#1d1d1f\]\/10{background-color:rgb(255 255 255 / 0.1)}
+.dark .bg-\[\#1d1d1f\]\/5{background-color:rgb(255 255 255 / 0.05)}
+.dark .bg-\[\#1d1d1f\]\/80{background-color:rgb(28 28 30 / 0.8)}
+.dark .bg-\[\#1d1d1f\]\/8{background-color:rgb(255 255 255 / 0.08)}
+.dark .bg-\[\#1d1d1f\]{background-color:#1c1c1e}
+.dark .bg-\[\#d2d2d7\]{background-color:#3a3a3c}
+.dark .bg-\[\#e8e8ed\]\/50{background-color:rgb(44 44 46 / 0.5)}
+.dark .bg-\[\#e8e8ed\]{background-color:#2c2c2e}
+.dark .bg-\[\#f0f7ff\]{background-color:#0a2540}
+.dark .bg-\[\#f5f5f7\]\/50{background-color:rgb(18 18 20 / 0.5)}
+.dark .bg-\[\#f5f5f7\]{background-color:#121214}
+.dark .bg-\[\#fbfbfd\]{background-color:#000000}
+.dark .bg-white\/10{background-color:rgb(28 28 30 / 0.1)}
+.dark .bg-white\/20{background-color:rgb(28 28 30 / 0.2)}
+.dark .bg-white\/80{background-color:rgb(28 28 30 / 0.8)}
+.dark .bg-white{background-color:#1c1c1e}
+.dark .border-\[\#1d1d1f\]\/20{border-color:rgb(255 255 255 / 0.2)}
+.dark .border-\[\#1d1d1f\]\/30{border-color:rgb(245 245 247 / 0.3)}
+.dark .border-\[\#1d1d1f\]{border-color:#f5f5f7}
+.dark .border-\[\#d2d2d7\]\/60{border-color:rgb(72 72 74 / 0.6)}
+.dark .border-\[\#d2d2d7\]\/80{border-color:rgb(72 72 74 / 0.8)}
+.dark .border-\[\#d2d2d7\]{border-color:#48484a}
+.dark .border-\[\#e8e8ed\]\/70{border-color:rgb(56 56 58 / 0.7)}
+.dark .border-\[\#e8e8ed\]{border-color:#38383a}
+.dark .focus\:bg-white:focus{background-color:#1c1c1e}
+.dark .focus\:ring-\[\#1d1d1f\]:focus{--tw-ring-color:#f5f5f7}
+.dark .from-\[\#1d1d1f\]{--tw-gradient-from:#1c1c1e}
+.dark .from-\[\#f5f5f7\]{--tw-gradient-from:#121214}
+.dark .group-hover\:bg-\[\#f0f7ff\]:is(:where(.group):hover *){background-color:#0a2540}
+.dark .group-hover\:text-\[\#0071e3\]:is(:where(.group):hover *){color:#0a84ff}
+.dark .hover\:bg-\[\#f0f7ff\]:hover{background-color:#0a2540}
+.dark .hover\:bg-\[\#f5f5f7\]:hover{background-color:#121214}
+.dark .hover\:bg-\[\#fbfbfd\]:hover{background-color:#000000}
+.dark .hover\:bg-white:hover{background-color:#1c1c1e}
+.dark .hover\:bg-white\/10:hover{background-color:rgb(28 28 30 / 0.1)}
+.dark .hover\:bg-white\/20:hover{background-color:rgb(28 28 30 / 0.2)}
+.dark .hover\:bg-white\/70:hover{background-color:rgb(28 28 30 / 0.7)}
+.dark .hover\:border-\[\#1d1d1f\]:hover{border-color:#f5f5f7}
+.dark .hover\:border-\[\#1d1d1f\]\/40:hover{border-color:rgb(245 245 247 / 0.4)}
+.dark .hover\:text-\[\#000000\]:hover{color:#f5f5f7}
+.dark .hover\:text-\[\#0071e3\]:hover{color:#0a84ff}
+.dark .hover\:text-\[\#1d1d1f\]:hover{color:#f5f5f7}
+.dark .ring-\[\#1d1d1f\]\/10{--tw-ring-color:rgb(255 255 255 / 0.1)}
+.dark .ring-\[\#1d1d1f\]{--tw-ring-color:#f5f5f7}
+.dark .text-\[\#0071e3\]\/5{color:rgb(10 132 255 / 0.05)}
+.dark .text-\[\#0071e3\]{color:#0a84ff}
+.dark .text-\[\#1d1d1f\]{color:#f5f5f7}
+.dark .text-\[\#424245\]{color:#d2d2d7}
+.dark .text-\[\#515154\]{color:#c7c7cc}
+.dark .text-\[\#66a9f5\]{color:#66a9f5}
+.dark .text-\[\#6e6e73\]{color:#a1a1a6}
+.dark .text-\[\#86868b\]{color:#8e8e93}
+.dark .to-\[\#f0f7ff\]{--tw-gradient-to:#0a2540}
+.dark .via-white{--tw-gradient-via:#1c1c1e}

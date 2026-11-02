@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* Apple Design — tokens. Giữ nguyên tên token cũ để toàn bộ component tự đổi style. */
+@theme {
+  /* Typography: ưu tiên system font (SF Pro) — có sẵn optical sizing & tracking */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+
+  /* Accent duy nhất: Apple blue (terracotta-* cũ) */
+  --color-terracotta-50: #f2f8ff;
+  --color-terracotta-100: #e1efff;
+  --color-terracotta-200: #bfdcff;
+  --color-terracotta-300: #8fc0ff;
+  --color-terracotta-400: #4da3ff;
+  --color-terracotta-500: #1a8cff;
+  --color-terracotta-600: #0071e3;
+  --color-terracotta-700: #0062c4;
+  --color-terracotta-800: #004f9f;
+  --color-terracotta-900: #003a75;
+
+  /* Graphite (forest-* cũ) */
+  --color-forest-50: #fbfbfd;
+  --color-forest-100: #f5f5f7;
+  --color-forest-200: #e8e8ed;
+  --color-forest-300: #d2d2d7;
+  --color-forest-400: #a1a1a6;
+  --color-forest-500: #86868b;
+  --color-forest-600: #6e6e73;
+  --color-forest-700: #424245;
+  --color-forest-800: #1d1d1f;
+  --color-forest-900: #1d1d1f;
+  --color-forest-950: #000000;
+
+  /* Light grays (ivory-* / sand-* cũ) */
+  --color-ivory-50: #ffffff;
+  --color-ivory-100: #fbfbfd;
+  --color-ivory-200: #f5f5f7;
+  --color-ivory-300: #e8e8ed;
+  --color-ivory-400: #d2d2d7;
+  --color-ivory-500: #c7c7cc;
+  --color-sand-50: #fafafc;
+  --color-sand-100: #f5f5f7;
+  --color-sand-200: #e8e8ed;
+  --color-sand-300: #d2d2d7;
+  --color-sand-400: #b8b8bd;
+  --color-sand-500: #86868b;
+
+  --color-charcoal-50: #f5f5f7;
+  --color-charcoal-100: #e8e8ed;
+  --color-charcoal-200: #d2d2d7;
+  --color-charcoal-300: #a1a1a6;
+  --color-charcoal-400: #86868b;
+  --color-charcoal-500: #6e6e73;
+  --color-charcoal-600: #515154;
+  --color-charcoal-700: #424245;
+  --color-charcoal-800: #2c2c2e;
+  --color-charcoal-900: #1d1d1f;
+  --color-charcoal-950: #000000;
+
+  /* Bo góc lớn, mềm (continuous-corner feel) */
+  --radius-md: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.125rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+
+  /* Bóng nhiều lớp, mờ — bề mặt càng lớn bóng càng sâu */
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 8px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 2px 4px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.07);
+  --shadow-lg: 0 4px 8px rgb(0 0 0 / 0.04), 0 16px 40px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 8px 16px rgb(0 0 0 / 0.05), 0 24px 64px rgb(0 0 0 / 0.14);
+  --shadow-2xl: 0 12px 24px rgb(0 0 0 / 0.06), 0 40px 100px rgb(0 0 0 / 0.22);
+}
+
+:root {
+  /* Đường cong kiểu sheet của Apple: vào nhanh, dừng êm (damping ≈ 1) */
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --accent: #0071e3;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #fbfbfd;
+    color: #1d1d1f;
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    letter-spacing: -0.006em;
+  }
+  /* Tracking & leading theo kích thước: chữ càng lớn càng chặt */
+  h1, h2, h3, h4, .font-heritage {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+  h1 { letter-spacing: -0.03em; line-height: 1.05; }
+  .text-xs, .text-\[11px\], .text-\[10px\] { letter-spacing: 0.01em; }
+  p { text-wrap: pretty; }
+  ::selection { background: #0071e3; color: #fff; }
+
+  /* Phản hồi tức thì khi nhấn (pointer-down), không đợi click */
+  button:not(:disabled), [role="button"] {
+    transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-spring);
+  }
+  button:not(:disabled):active, [role="button"]:active {
+    transform: scale(0.98);
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+  }
+  :focus-visible {
+    outline: 3px solid rgb(0 113 227 / 0.45);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+  input, select, textarea { font-family: inherit; }
+}
+
+/* Vật liệu trong mờ: nav/sheet là một lớp nổi, nội dung cuộn bên dưới */
+.glass {
+  background: rgb(251 251 253 / 0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgb(0 0 0 / 0.08);
+}
+.glass-thick {
+  background: rgb(255 255 255 / 0.82);
+  -webkit-backdrop-filter: saturate(180%) blur(40px);
+  backdrop-filter: saturate(180%) blur(40px);
+  border: 1px solid rgb(255 255 255 / 0.55);
+  box-shadow: 0 0 0 0.5px rgb(0 0 0 / 0.08), 0 12px 24px rgb(0 0 0 / 0.08), 0 40px 100px rgb(0 0 0 / 0.22);
+}
+
+/* "Materialize": blur + scale + opacity cùng lúc, không chỉ fade */
+@keyframes materialize {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); filter: blur(12px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes scrim-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sheet-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+.animate-materialize { animation: materialize 0.45s var(--ease-spring) backwards; }
+.animate-scrim { animation: scrim-in 0.3s ease-out backwards; }
+.animate-sheet-down { animation: sheet-down 0.35s var(--ease-spring) both; transform-origin: top; }
+
+/* Bỏ hoa văn trang trí — tiết chế */
+.bg-pottery-grain, .bg-craft-grid { background-image: none; }
+
+/* Accessibility: reduced motion = cross-fade nhẹ, không trượt/nảy */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-materialize, .animate-sheet-down { animation: scrim-in 0.2s ease both; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  button:not(:disabled):active, [role="button"]:active { transform: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .glass-thick { background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (prefers-contrast: more) {
+  .glass, .glass-thick { background: #fff; border-color: #1d1d1f; }
+}
+
+/* Scroll reveal: dùng animation (backwards) để không đè hover/transition của phần tử */
+@keyframes reveal-up { from { opacity: 0; translate: 0 32px; filter: blur(8px); } to { opacity: 1; translate: 0 0; filter: blur(0); } }
+[data-reveal="pending"] { opacity: 0; }
+[data-reveal="in"] { animation: reveal-up 0.9s var(--ease-spring) var(--reveal-delay, 0ms) backwards; }
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1 !important; animation: none !important; } }
+
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
